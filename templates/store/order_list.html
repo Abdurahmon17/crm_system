@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Buyurtmalar ro‘yxati{% endblock %}
+{% block content %}
+    <h1 class="mb-4">Buyurtmalar</h1>
+    <div class="d-flex justify-content-between mb-3">
+        <a href="{% url 'order_create' %}" class="btn btn-custom">Yangi buyurtma qo‘shish</a>
+        <input type="text" class="form-control w-25 search-input" placeholder="Qidirish...">
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Mijoz</th>
+                <th>Sana</th>
+                <th>Holati</th>
+                <th>Summa</th>
+                <th>Amallar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.customer.name }}</td>
+                    <td>{{ order.order_date|date:"Y-m-d" }}</td>
+                    <td>{{ order.get_status_display }}</td>
+                    <td>{{ order.total_amount|floatformat:2 }}</td>
+                    <td>
+                        <a href="{% url 'order_edit' order.id %}" class="btn btn-sm btn-warning">Tahrirlash</a>
+                        <a href="{% url 'order_update_status' order.id %}" class="btn btn-sm btn-primary">Holatni yangilash</a>
+                        <a href="{% url 'payment_create' order.id %}" class="btn btn-sm btn-success">To‘lov qo‘shish</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center">Buyurtmalar topilmadi</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,69 @@
+{#{% extends 'base.html' %}#}
+{#{% block title %}Kirish{% endblock %}#}
+{#{% block content %}#}
+{#<div class="row justify-content-center">#}
+{#    <div class="col-md-6">#}
+{#        <div class="card mt-5">#}
+{#            <div class="card-body">#}
+{#                <h2 class="card-title text-center">Kirish</h2>#}
+{#                <form method="post" class="needs-validation" novalidate>#}
+{#                    {% csrf_token %}#}
+{#                    <div class="form-group mb-3">#}
+{#                        <label for="username">Foydalanuvchi nomi</label>#}
+{#                        {{ form.username }}#}
+{#                        <div class="invalid-feedback">Foydalanuvchi nomini kiriting.</div>#}
+{#                    </div>#}
+{#                    <div class="form-group mb-3">#}
+{#                        <label for="password">Parol</label>#}
+{#                        {{ form.password }}#}
+{#                        <div class="invalid-feedback">Parolni kiriting.</div>#}
+{#                    </div>#}
+{#                    {% if form.errors %}#}
+{#                        <div class="alert alert-danger">#}
+{#                            Noto‘g‘ri foydalanuvchi nomi yoki parol.#}
+{#                        </div>#}
+{#                    {% endif %}#}
+{#                    <button type="submit" class="btn btn-custom w-100">Kirish</button>#}
+{#                </form>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#{% endblock %}#}
+
+
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}Kirish{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card login-card mt-5 shadow">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Hisobga kirish</h2>
+                <form method="post" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    <div class="form-group mb-3">
+                        <label for="username" class="form-label">Foydalanuvchi nomi</label>
+                        {{ form.username|add_class:"form-control" }}
+                        <div class="invalid-feedback">Foydalanuvchi nomini kiriting.</div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="password" class="form-label">Parol</label>
+                        {{ form.password|add_class:"form-control" }}
+                        <div class="invalid-feedback">Parolni kiriting.</div>
+                    </div>
+
+                    {% if form.errors %}
+                        <div class="alert alert-danger text-center">
+                            ❌ Noto‘g‘ri foydalanuvchi nomi yoki parol.
+                        </div>
+                    {% endif %}
+
+                    <button type="submit" class="btn login-btn w-100">🔐 Kirish</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

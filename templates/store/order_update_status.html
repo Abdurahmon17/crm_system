@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Buyurtma holatini yangilash{% endblock %}
+{% block content %}
+    <h1 class="mb-4">Buyurtma #{{ order.id }} holatini yangilash</h1>
+    <form method="post" class="needs-validation" novalidate>
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="status">Yangi holat</label>
+            <select name="status" id="status" class="form-control" required>
+                {% for value, label in order.STATUS_CHOICES %}
+                    <option value="{{ value }}" {% if value == order.status %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+            <div class="invalid-feedback">Iltimos, holatni tanlang.</div>
+        </div>
+        <button type="submit" class="btn btn-custom">Yangilash</button>
+        <a href="{% url 'order_list' %}" class="btn btn-secondary">Bekor qilish</a>
+    </form>
+{% endblock %}

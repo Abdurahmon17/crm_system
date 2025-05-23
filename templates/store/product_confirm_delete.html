@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Mahsulotni o‘chirish
+{% endblock %}
+
+{% block content %}
+    <h1>Mahsulotni o‘chirishni tasdiqlash</h1>
+    <p>Haqiqatdan ham <strong>{{ object.name }}</strong> mahsulotini o‘chirishni xohlaysizmi?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">O‘chirish</button>
+        <a href="{% url 'product_list' %}" class="btn btn-secondary">Bekor qilish</a>
+    </form>
+{% endblock %}

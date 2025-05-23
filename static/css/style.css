@@ -1,0 +1,314 @@
+/* Umumiy sozlamalar */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5F7FA;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Animatsiyalar */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+main {
+    min-height: 70vh;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(90deg, #4A90E2, #357ABD);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
+}
+
+.nav-link {
+    color: #FFFFFF !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #E6F0FA !important;
+}
+
+/* Tugmalar */
+.btn-custom {
+    background-color: #4A90E2;
+    color: #FFFFFF;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-custom:hover {
+    background-color: #357ABD;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #6C757D;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #5A6268;
+}
+
+/* Jadvallar */
+.table {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.table th {
+    background-color: #4A90E2;
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.table td {
+    vertical-align: middle;
+    transition: background-color 0.2s ease;
+}
+
+.table tr:hover {
+    background-color: #F8F9FA;
+}
+
+/* Formalar */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #CED4DA;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #4A90E2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+.invalid-feedback {
+    color: #DC3545;
+    font-size: 0.9em;
+}
+
+.form-select {
+    border-radius: 8px;
+}
+
+/* Kartalar */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    color: #4A90E2;
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(90deg, #4A90E2, #357ABD);
+    color: #FFFFFF;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsivlik */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .btn-custom, .btn-secondary {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .table {
+        font-size: 0.9em;
+    }
+
+    .search-input {
+        width: 100% !important;
+    }
+}
+
+/* Qidiruv maydoni */
+.search-input {
+    border-radius: 25px;
+    padding: 10px 20px;
+    border: 1px solid #CED4DA;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #4A90E2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+/* Xato xabarlari */
+.alert {
+    border-radius: 8px;
+    margin-bottom: 20px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Login card custom styling */
+/* Login card custom styling */
+.login-card {
+    border-radius: 15px;
+    background: #FFFFFF;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.form-control {
+    border-radius: 8px;
+    border-color: #ced4da;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #4A90E2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+    background-color: #FFFFFF;
+}
+
+.login-btn {
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background-color: #4A90E2;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #357ABD;
+    transform: scale(1.05);
+}
+
+.invalid-feedback {
+    font-size: 0.875rem;
+}
+
+/* Ensure navbar consistency */
+.navbar-dark .nav-link {
+    color: #FFFFFF !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .nav-link:hover {
+    color: #4A90E2 !important;
+}
+
+/* Login card custom styling */
+.login-card {
+    border-radius: 15px;
+    background: #FFFFFF;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.form-control {
+    border-radius: 8px;
+    border-color: #ced4da;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #4A90E2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+    background-color: #FFFFFF;
+}
+
+.login-btn {
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background-color: #4A90E2;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #357ABD;
+    transform: scale(1.05);
+}
+
+.invalid-feedback {
+    font-size: 0.875rem;
+}
+
+/* Ensure navbar consistency */
+.navbar-dark .nav-link {
+    color: #FFFFFF !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .nav-link:hover {
+    color: #4A90E2 !important;
+}

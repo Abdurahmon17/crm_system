@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}
+    Yangi buyurtma qo‘shish
+{% endblock %}
+{% block content %}
+    <h1 class="mb-4">
+        Yangi buyurtma qo‘shish
+    </h1>
+    {% if order_form.errors or formset.errors %}
+        <div class="alert alert-danger">
+            Iltimos, xatolarni tuzating.
+        </div>
+    {% endif %}
+    <form method="post" class="needs-validation" novalidate>
+        {% csrf_token %}
+        <h3>Buyurtma ma’lumotlari</h3>
+        <div class="form-group">
+            <label for="{{ order_form.customer.id_for_label }}">Mijoz</label>
+            {{ order_form.customer }}
+            <div class="invalid-feedback">Iltimos, mijozni tanlang.</div>
+        </div>
+        <div class="form-group">
+            <label for="{{ order_form.status.id_for_label }}">Holati</label>
+            {{ order_form.status }}
+            <div class="invalid-feedback">Iltimos, holatni tanlang.</div>
+        </div>
+        <h3 class="mt-4">Buyurtma elementlari</h3>
+        {{ formset.management_form }}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Mahsulot</th>
+                    <th>Miqdor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for form in formset %}
+                    <tr>
+                        <td>{{ form.product }}</td>
+                        <td>{{ form.quantity }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-custom">Saqlash</button>
+        <a href="{% url 'order_list' %}" class="btn btn-secondary">Bekor qilish</a>
+    </form>
+{% endblock %}

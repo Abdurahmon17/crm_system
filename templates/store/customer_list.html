@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Mijozlar ro‘yxati{% endblock %}
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Mijozlar</h1>
+        <div class="d-flex gap-3">
+            <a href="{% url 'customer_create' %}" class="btn btn-custom">Yangi mijoz</a>
+            <input type="text" class="form-control search-input" placeholder="Ism yoki telefon bo‘yicha qidirish..." style="width: 250px;">
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ism</th>
+                <th>Telefon</th>
+                <th>Email</th>
+                <th>Manzil</th>
+                <th>Amallar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+                <tr>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>{{ customer.email|default:"-" }}</td>
+                    <td>{{ customer.address|default:"-" }}</td>
+                    <td>
+                        <a href="{% url 'customer_edit' customer.id %}" class="btn btn-sm btn-warning">Tahrirlash</a>
+                        <a href="{% url 'customer_delete' customer.id %}" class="btn btn-sm btn-danger">O‘chirish</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center">Mijozlar topilmadi</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
